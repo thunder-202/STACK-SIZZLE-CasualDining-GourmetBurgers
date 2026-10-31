@@ -1,0 +1,6 @@
+{
+  "name": "STACK & SIZZLE — Casual Dining & Gourmet Burgers",
+  "description": "Modern casual restaurant website portfolio concept for STACK & SIZZLE in Brisbane, featuring gourmet burgers, interactive category menu filtering, a live demo order cart, and food photography gallery.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,1317 @@
+<!doctype html>
+<html lang="en-AU">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>STACK &amp; SIZZLE — Casual Dining &amp; Gourmet Burgers | Brisbane</title>
+    <meta
+      name="description"
+      content="Modern casual restaurant website portfolio concept for STACK &amp; SIZZLE in Brisbane, featuring gourmet burgers, interactive category menu filtering, a live demo order cart, and food photography gallery."
+    />
+    <meta property="og:title" content="STACK &amp; SIZZLE — Casual Dining &amp; Gourmet Burgers" />
+    <meta
+      property="og:description"
+      content="Modern casual restaurant website portfolio concept for STACK &amp; SIZZLE in Brisbane, featuring gourmet burgers, interactive category menu filtering, a live demo order cart, and food photography gallery."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=JetBrains+Mono:wght@500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/index.css" />
+  </head>
+  <body class="min-h-screen flex flex-col selection:bg-[#D9480F] selection:text-white">
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:bg-[#D9480F] focus:text-white focus:px-4 focus:py-2 focus:rounded-md focus:font-semibold"
+    >
+      Skip to main content
+    </a>
+
+    <!-- Top Navigation Bar (Strict 3-Zone Contract) -->
+    <header class="site-header sticky top-0 z-40 h-16 flex items-center">
+      <div class="w-full max-w-[1200px] mx-auto px-5 sm:px-8 flex items-center justify-between gap-8">
+        <!-- Zone 1: Single-line Brand Wordmark -->
+        <a
+          href="#home"
+          class="font-display text-xl sm:text-2xl font-extrabold tracking-tight text-[#FAF7F2] whitespace-nowrap shrink-0"
+        >
+          STACK &amp; SIZZLE
+        </a>
+
+        <!-- Zone 2: Clean Single-Line Navigation Links -->
+        <nav aria-label="Primary navigation" class="hidden md:flex items-center gap-7 text-sm font-semibold">
+          <a href="#home" class="nav-link whitespace-nowrap shrink-0">Home</a>
+          <a href="#menu" class="nav-link whitespace-nowrap shrink-0">Menu</a>
+          <a href="#story" class="nav-link whitespace-nowrap shrink-0">Our Story</a>
+          <a href="#locations" class="nav-link whitespace-nowrap shrink-0">Locations</a>
+          <a href="#contact" class="nav-link whitespace-nowrap shrink-0">Contact</a>
+        </nav>
+
+        <!-- Zone 3: Primary Action + Mobile Menu Trigger -->
+        <div class="flex items-center gap-3 shrink-0">
+          <button
+            type="button"
+            data-open-cart
+            class="btn-primary px-4 py-2 rounded-md text-sm font-semibold whitespace-nowrap shrink-0 cursor-pointer"
+          >
+            <span id="header-order-label">Order Online</span>
+          </button>
+
+          <button
+            type="button"
+            id="mobile-menu-toggle"
+            aria-expanded="false"
+            aria-controls="mobile-nav-panel"
+            aria-label="Toggle navigation menu"
+            class="md:hidden w-10 h-10 inline-flex items-center justify-center rounded-md border border-white/20 text-[#FAF7F2] hover:bg-white/10 transition-colors cursor-pointer"
+          >
+            <svg id="icon-menu-open" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 7h16M4 12h16M4 17h16" />
+            </svg>
+            <svg id="icon-menu-close" class="w-5 h-5 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Responsive Mobile Navigation Dropdown -->
+      <div
+        id="mobile-nav-panel"
+        hidden
+        class="md:hidden absolute top-16 inset-x-0 bg-[#141514] border-b border-white/15 shadow-2xl"
+      >
+        <nav aria-label="Mobile navigation" class="px-6 py-5 flex flex-col gap-1">
+          <a href="#home" data-mobile-link class="py-2.5 text-base font-semibold text-[#FAF7F2] hover:text-[#F25C05] transition-colors">Home</a>
+          <a href="#menu" data-mobile-link class="py-2.5 text-base font-semibold text-[#FAF7F2] hover:text-[#F25C05] transition-colors">Menu</a>
+          <a href="#story" data-mobile-link class="py-2.5 text-base font-semibold text-[#FAF7F2] hover:text-[#F25C05] transition-colors">Our Story</a>
+          <a href="#locations" data-mobile-link class="py-2.5 text-base font-semibold text-[#FAF7F2] hover:text-[#F25C05] transition-colors">Locations</a>
+          <a href="#contact" data-mobile-link class="py-2.5 text-base font-semibold text-[#FAF7F2] hover:text-[#F25C05] transition-colors">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main-content" class="flex-1">
+      <!-- 2. Hero Section: Full-Bleed Food Photography with Overlaid Headline -->
+      <section
+        id="home"
+        aria-label="Hero"
+        class="relative min-h-[86vh] flex items-center overflow-hidden bg-[#141514]"
+      >
+        <img
+          src="/src/assets/images/hero_burger_feast_1793352930905.jpg"
+          alt="Towering double smash cheeseburger with smoky streaky bacon, house pickles, and golden skin-on fries on a dark serving tray"
+          referrerpolicy="no-referrer"
+          fetchpriority="high"
+          data-fallback-label="STACK & SIZZLE Signature Feast"
+          class="absolute inset-0 w-full h-full object-cover object-center"
+        />
+        <div class="hero-scrim absolute inset-0" aria-hidden="true"></div>
+        <div class="hero-bottom-scrim absolute inset-0" aria-hidden="true"></div>
+
+        <div class="relative z-10 w-full max-w-[1200px] mx-auto px-5 sm:px-8 py-20 md:py-28">
+          <div class="max-w-2xl">
+            <p class="animate-hero-1 text-sm font-medium text-[#FAF7F2]/85 tracking-wide mb-4">
+              South Bank, Brisbane <span aria-hidden="true" class="mx-2 text-[#F25C05]">·</span> Gourmet Burgers, Loaded Fries &amp; Shakes
+            </p>
+            <h1
+              class="animate-hero-2 font-display text-4xl sm:text-5xl lg:text-[3.75rem] font-extrabold text-[#FAF7F2] leading-[1.06] headline-balance mb-6"
+            >
+              Big Flavour. No Boring Bites.
+            </h1>
+            <p class="animate-hero-2 text-lg sm:text-xl text-[#FAF7F2]/90 leading-relaxed max-w-xl mb-9">
+              Freshly prepared favourites, stacked high and served with attitude.
+            </p>
+            <div class="animate-hero-3 flex flex-wrap items-center gap-4">
+              <a
+                href="#menu"
+                class="btn-primary px-6 py-3.5 rounded-md text-base font-semibold whitespace-nowrap shrink-0 inline-flex items-center justify-center"
+              >
+                Explore the Menu
+              </a>
+              <button
+                type="button"
+                data-open-cart
+                class="btn-outline-light px-6 py-3.5 rounded-md text-base font-semibold whitespace-nowrap shrink-0 inline-flex items-center justify-center cursor-pointer"
+              >
+                Order Online
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. Featured Food: Asymmetric Editorial Signature Showcase -->
+      <section id="featured" aria-labelledby="featured-heading" class="py-20 md:py-28 bg-[#FAF7F2]">
+        <div class="max-w-[1200px] mx-auto px-5 sm:px-8">
+          <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 pb-6 border-b border-[#1C1E1C]/10">
+            <div>
+              <p class="text-sm font-semibold text-[#123524] mb-2">
+                House Signatures <span aria-hidden="true" class="mx-1.5">·</span> Pressed &amp; Spun Fresh
+              </p>
+              <h2
+                id="featured-heading"
+                class="font-display text-3xl sm:text-4xl font-extrabold text-[#1C1E1C] headline-balance"
+              >
+                Six Reasons Locals Line Up Early
+              </h2>
+            </div>
+            <a
+              href="#menu"
+              class="text-sm font-semibold text-[#123524] hover:text-[#D9480F] transition-colors whitespace-nowrap shrink-0 inline-flex items-center gap-1.5"
+            >
+              <span>Browse Full 16-Item Menu</span>
+              <span aria-hidden="true">&rarr;</span>
+            </a>
+          </div>
+
+          <!-- Row 1: Asymmetric 7-Column Marquee Feature + 5-Column Tall Feature -->
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-7 mb-7 items-stretch">
+            <!-- Signature 1: The Double Stack Burger -->
+            <article class="food-card lg:col-span-7 bg-white border border-[#1C1E1C]/10 rounded-lg overflow-hidden flex flex-col">
+              <div class="food-media relative aspect-[16/10] overflow-hidden bg-[#141514]">
+                <img
+                  src="/src/assets/images/double_stack_burger_1793352931979.jpg"
+                  alt="The Double Stack Burger with two seared Wagyu-blend patties, melted cheddar, dill pickles, and tangy sizzle sauce"
+                  referrerpolicy="no-referrer"
+                  loading="lazy"
+                  data-fallback-label="The Double Stack Burger"
+                  class="w-full h-full object-cover"
+                />
+              </div>
+              <div class="p-6 sm:p-8 flex-1 flex flex-col justify-between gap-6">
+                <div>
+                  <div class="flex items-baseline justify-between gap-4 mb-2">
+                    <p class="text-xs font-medium text-[#636863]">
+                      Signature Beef <span aria-hidden="true">·</span> Gluten-Free Bun Option
+                    </p>
+                    <span class="font-price text-lg font-semibold text-[#123524] whitespace-nowrap shrink-0">$19.50 AUD</span>
+                  </div>
+                  <h3 class="font-display text-2xl sm:text-[1.65rem] font-bold text-[#1C1E1C] mb-2">
+                    The Double Stack Burger
+                  </h3>
+                  <p class="text-[15px] text-[#3D413D] leading-relaxed">
+                    Two lacy-edged Queensland Wagyu-blend smash patties, double American cheddar, house-cured crinkle pickles, diced white onion, and smoky sizzle sauce on a warm toasted potato bun.
+                  </p>
+                </div>
+                <div class="flex flex-wrap items-center gap-3 pt-2">
+                  <button
+                    type="button"
+                    data-add-id="double-stack-burger"
+                    class="btn-primary px-5 py-2.5 rounded-md text-sm font-semibold whitespace-nowrap shrink-0 cursor-pointer"
+                  >
+                    Add to Order
+                  </button>
+                  <button
+                    type="button"
+                    data-view-id="double-stack-burger"
+                    class="btn-outline-dark px-4 py-2.5 rounded-md text-sm font-semibold whitespace-nowrap shrink-0 cursor-pointer"
+                  >
+                    View Item
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <!-- Signature 2: Loaded Truffle Fries -->
+            <article class="food-card lg:col-span-5 bg-[#123524] text-[#FAF7F2] rounded-lg overflow-hidden flex flex-col justify-between">
+              <div class="food-media relative aspect-[4/3] overflow-hidden bg-[#141514]">
+                <img
+                  src="/src/assets/images/loaded_truffle_fries_1793352936748.jpg"
+                  alt="Loaded Truffle Fries topped with shaved Parmigiano-Reggiano, black truffle drizzle, roasted garlic aioli, and chives"
+                  referrerpolicy="no-referrer"
+                  loading="lazy"
+                  data-fallback-label="Loaded Truffle Fries"
+                  class="w-full h-full object-cover"
+                />
+              </div>
+              <div class="p-6 sm:p-7 flex-1 flex flex-col justify-between gap-6">
+                <div>
+                  <div class="flex items-baseline justify-between gap-4 mb-2">
+                    <p class="text-xs font-medium text-[#FAF7F2]/75">
+                      Shareable Side <span aria-hidden="true">·</span> Vegetarian
+                    </p>
+                    <span class="font-price text-lg font-semibold text-[#FAF7F2] whitespace-nowrap shrink-0">$13.50 AUD</span>
+                  </div>
+                  <h3 class="font-display text-2xl font-bold text-[#FAF7F2] mb-2">
+                    Loaded Truffle Fries
+                  </h3>
+                  <p class="text-[15px] text-[#FAF7F2]/85 leading-relaxed">
+                    Double-cooked skin-on fries tossed in aromatic black truffle oil, buried under 24-month shaved parmesan, roasted garlic aioli ribbons, and fresh snipped chives.
+                  </p>
+                </div>
+                <div class="flex flex-wrap items-center gap-3 pt-1">
+                  <button
+                    type="button"
+                    data-add-id="loaded-truffle-fries"
+                    class="btn-primary px-5 py-2.5 rounded-md text-sm font-semibold whitespace-nowrap shrink-0 cursor-pointer"
+                  >
+                    Add to Order
+                  </button>
+                  <button
+                    type="button"
+                    data-view-id="loaded-truffle-fries"
+                    class="btn-outline-light px-4 py-2.5 rounded-md text-sm font-semibold whitespace-nowrap shrink-0 cursor-pointer"
+                  >
+                    View Item
+                  </button>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <!-- Row 2: Architectural Split Highlights -->
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-7 mb-7">
+            <!-- Signature 3: Smoky BBQ Chicken Burger -->
+            <article class="food-card bg-white border border-[#1C1E1C]/10 rounded-lg overflow-hidden grid grid-cols-1 sm:grid-cols-12 items-stretch">
+              <div class="food-media sm:col-span-5 relative aspect-[4/3] sm:aspect-auto overflow-hidden bg-[#141514]">
+                <img
+                  src="/src/assets/images/bbq_chicken_burger_1793352933742.jpg"
+                  alt="Smoky BBQ Chicken Burger with hickory-glazed chargrilled chicken, onion rings, cheddar, and apple slaw"
+                  referrerpolicy="no-referrer"
+                  loading="lazy"
+                  data-fallback-label="Smoky BBQ Chicken Burger"
+                  class="w-full h-full object-cover"
+                />
+              </div>
+              <div class="sm:col-span-7 p-6 flex flex-col justify-between gap-5">
+                <div>
+                  <div class="flex items-baseline justify-between gap-3 mb-1.5">
+                    <p class="text-xs font-medium text-[#636863]">Flame Grilled</p>
+                    <span class="font-price text-base font-semibold text-[#123524] whitespace-nowrap shrink-0">$18.90 AUD</span>
+                  </div>
+                  <h3 class="font-display text-xl font-bold text-[#1C1E1C] mb-2">
+                    Smoky BBQ Chicken Burger
+                  </h3>
+                  <p class="text-sm text-[#3D413D] leading-relaxed">
+                    Chargrilled buttermilk chicken thigh basted in hickory-molasses BBQ glaze, beer-battered onion rings, aged cheddar, and crisp Granny Smith slaw.
+                  </p>
+                </div>
+                <div class="flex flex-wrap items-center gap-2.5">
+                  <button
+                    type="button"
+                    data-add-id="smoky-bbq-chicken-burger"
+                    class="btn-forest px-4 py-2 rounded-md text-xs font-semibold whitespace-nowrap shrink-0 cursor-pointer"
+                  >
+                    Add to Order
+                  </button>
+                  <button
+                    type="button"
+                    data-view-id="smoky-bbq-chicken-burger"
+                    class="btn-outline-dark px-3.5 py-2 rounded-md text-xs font-semibold whitespace-nowrap shrink-0 cursor-pointer"
+                  >
+                    View Item
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <!-- Signature 4: Spicy Crunch Burger -->
+            <article class="food-card bg-white border border-[#1C1E1C]/10 rounded-lg overflow-hidden grid grid-cols-1 sm:grid-cols-12 items-stretch">
+              <div class="food-media sm:col-span-5 relative aspect-[4/3] sm:aspect-auto overflow-hidden bg-[#141514]">
+                <img
+                  src="/src/assets/images/spicy_crunch_burger_1793352938122.jpg"
+                  alt="Spicy Crunch Burger with chili-glazed crispy chicken, pickled jalapenos, melted pepper jack, and purple slaw"
+                  referrerpolicy="no-referrer"
+                  loading="lazy"
+                  data-fallback-label="Spicy Crunch Burger"
+                  class="w-full h-full object-cover"
+                />
+              </div>
+              <div class="sm:col-span-7 p-6 flex flex-col justify-between gap-5">
+                <div>
+                  <div class="flex items-baseline justify-between gap-3 mb-1.5">
+                    <p class="text-xs font-medium text-[#D9480F]">Spicy Heat <span aria-hidden="true" class="text-[#636863]">·</span> House Chilli Glaze</p>
+                    <span class="font-price text-base font-semibold text-[#123524] whitespace-nowrap shrink-0">$19.20 AUD</span>
+                  </div>
+                  <h3 class="font-display text-xl font-bold text-[#1C1E1C] mb-2">
+                    Spicy Crunch Burger
+                  </h3>
+                  <p class="text-sm text-[#3D413D] leading-relaxed">
+                    Crispy fried chicken breast lacquered in fiery habanero-honey oil, pickled green jalapenos, melted pepper jack, red cabbage slaw, and chipotle mayo.
+                  </p>
+                </div>
+                <div class="flex flex-wrap items-center gap-2.5">
+                  <button
+                    type="button"
+                    data-add-id="spicy-crunch-burger"
+                    class="btn-forest px-4 py-2 rounded-md text-xs font-semibold whitespace-nowrap shrink-0 cursor-pointer"
+                  >
+                    Add to Order
+                  </button>
+                  <button
+                    type="button"
+                    data-view-id="spicy-crunch-burger"
+                    class="btn-outline-dark px-3.5 py-2 rounded-md text-xs font-semibold whitespace-nowrap shrink-0 cursor-pointer"
+                  >
+                    View Item
+                  </button>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <!-- Row 3: Asymmetric 5-Col + 7-Col Pairing -->
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-7 items-stretch">
+            <!-- Signature 5: Classic Chocolate Shake -->
+            <article class="food-card lg:col-span-5 bg-white border border-[#1C1E1C]/10 rounded-lg overflow-hidden flex flex-col justify-between">
+              <div class="food-media relative aspect-[4/3] overflow-hidden bg-[#141514]">
+                <img
+                  src="/src/assets/images/classic_chocolate_shake_1793352939206.jpg"
+                  alt="Classic Chocolate Shake served in a chilled tall fountain glass with dark chocolate swirls and whipped cream"
+                  referrerpolicy="no-referrer"
+                  loading="lazy"
+                  data-fallback-label="Classic Chocolate Shake"
+                  class="w-full h-full object-cover"
+                />
+              </div>
+              <div class="p-6 flex-1 flex flex-col justify-between gap-5">
+                <div>
+                  <div class="flex items-baseline justify-between gap-3 mb-1.5">
+                    <p class="text-xs font-medium text-[#636863]">
+                      Hand-Spun Thickshake <span aria-hidden="true">·</span> Vegetarian
+                    </p>
+                    <span class="font-price text-base font-semibold text-[#123524] whitespace-nowrap shrink-0">$10.50 AUD</span>
+                  </div>
+                  <h3 class="font-display text-xl font-bold text-[#1C1E1C] mb-2">
+                    Classic Chocolate Shake
+                  </h3>
+                  <p class="text-sm text-[#3D413D] leading-relaxed">
+                    Spun thick with Maleny dairy ice cream, Belgian 70% dark chocolate ganache, roasted malt, whipped cream peak, and dark chocolate curls.
+                  </p>
+                </div>
+                <div class="flex flex-wrap items-center gap-2.5">
+                  <button
+                    type="button"
+                    data-add-id="classic-chocolate-shake"
+                    class="btn-forest px-4 py-2 rounded-md text-xs font-semibold whitespace-nowrap shrink-0 cursor-pointer"
+                  >
+                    Add to Order
+                  </button>
+                  <button
+                    type="button"
+                    data-view-id="classic-chocolate-shake"
+                    class="btn-outline-dark px-3.5 py-2 rounded-md text-xs font-semibold whitespace-nowrap shrink-0 cursor-pointer"
+                  >
+                    View Item
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <!-- Signature 6: Crispy Southern Chicken -->
+            <article class="food-card lg:col-span-7 bg-[#1C1E1C] text-[#FAF7F2] rounded-lg overflow-hidden grid grid-cols-1 md:grid-cols-12 items-stretch">
+              <div class="food-media md:col-span-7 relative aspect-[4/3] md:aspect-auto overflow-hidden bg-[#141514]">
+                <img
+                  src="/src/assets/images/crispy_southern_chicken_1793352935821.jpg"
+                  alt="Crispy Southern Chicken tenders on butcher paper with spiced comeback dipping sauce and dill pickles"
+                  referrerpolicy="no-referrer"
+                  loading="lazy"
+                  data-fallback-label="Crispy Southern Chicken"
+                  class="w-full h-full object-cover"
+                />
+              </div>
+              <div class="md:col-span-5 p-6 sm:p-7 flex flex-col justify-between gap-6">
+                <div>
+                  <div class="flex items-baseline justify-between gap-3 mb-2">
+                    <p class="text-xs font-medium text-[#FAF7F2]/75">24-Hour Brine</p>
+                    <span class="font-price text-base font-semibold text-[#F25C05] whitespace-nowrap shrink-0">$16.50 AUD</span>
+                  </div>
+                  <h3 class="font-display text-2xl font-bold text-[#FAF7F2] mb-2.5">
+                    Crispy Southern Chicken
+                  </h3>
+                  <p class="text-sm text-[#FAF7F2]/80 leading-relaxed">
+                    Free-range chicken tenders brined overnight in spiced buttermilk, dredged in cracked pepper flour, and fried golden. Served with house comeback sauce and dill pickles.
+                  </p>
+                </div>
+                <div class="flex flex-wrap items-center gap-2.5">
+                  <button
+                    type="button"
+                    data-add-id="crispy-southern-chicken"
+                    class="btn-primary px-4 py-2.5 rounded-md text-xs font-semibold whitespace-nowrap shrink-0 cursor-pointer"
+                  >
+                    Add to Order
+                  </button>
+                  <button
+                    type="button"
+                    data-view-id="crispy-southern-chicken"
+                    class="btn-outline-light px-3.5 py-2.5 rounded-md text-xs font-semibold whitespace-nowrap shrink-0 cursor-pointer"
+                  >
+                    View Item
+                  </button>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. Interactive Menu with Live Category Filters & Demo Cart Integration -->
+      <section id="menu" aria-labelledby="menu-heading" class="py-20 md:py-28 bg-[#F1ECE3] border-y border-[#1C1E1C]/10">
+        <div class="max-w-[1200px] mx-auto px-5 sm:px-8">
+          <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-10">
+            <div>
+              <p class="text-sm font-semibold text-[#123524] mb-2">
+                Full Kitchen Menu <span aria-hidden="true" class="mx-1.5">·</span> Demonstration Pricing in AUD
+              </p>
+              <h2
+                id="menu-heading"
+                class="font-display text-3xl sm:text-4xl font-extrabold text-[#1C1E1C] headline-balance"
+              >
+                Built to Stack. Ready to Sizzle.
+              </h2>
+            </div>
+
+            <div class="flex flex-wrap items-center gap-4">
+              <p id="menu-results-count" class="text-sm text-[#3D413D]">
+                Showing 16 menu items
+              </p>
+              <button
+                type="button"
+                data-open-cart
+                class="btn-forest px-4 py-2.5 rounded-md text-sm font-semibold whitespace-nowrap shrink-0 inline-flex items-center gap-2 cursor-pointer"
+              >
+                <span>View Demo Cart</span>
+                <span aria-hidden="true">·</span>
+                <span id="menu-cart-summary" class="font-price">$0.00</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Accessible Segmented Category Filter Bar -->
+          <div class="flex items-center justify-between gap-4 pb-8 mb-8 border-b border-[#1C1E1C]/10 overflow-x-auto">
+            <div
+              id="menu-filter-bar"
+              role="tablist"
+              aria-label="Filter menu by category"
+              class="inline-flex items-center gap-1.5 p-1.5 bg-[#FAF7F2] border border-[#1C1E1C]/10 rounded-lg"
+            >
+              <button
+                type="button"
+                role="tab"
+                aria-selected="true"
+                data-category="all"
+                class="filter-tab px-4 py-2 rounded-md text-sm font-semibold whitespace-nowrap shrink-0 cursor-pointer"
+              >
+                All Items
+              </button>
+              <button
+                type="button"
+                role="tab"
+                aria-selected="false"
+                data-category="Burgers"
+                class="filter-tab px-4 py-2 rounded-md text-sm font-semibold whitespace-nowrap shrink-0 cursor-pointer"
+              >
+                Burgers
+              </button>
+              <button
+                type="button"
+                role="tab"
+                aria-selected="false"
+                data-category="Chicken"
+                class="filter-tab px-4 py-2 rounded-md text-sm font-semibold whitespace-nowrap shrink-0 cursor-pointer"
+              >
+                Chicken
+              </button>
+              <button
+                type="button"
+                role="tab"
+                aria-selected="false"
+                data-category="Sides"
+                class="filter-tab px-4 py-2 rounded-md text-sm font-semibold whitespace-nowrap shrink-0 cursor-pointer"
+              >
+                Sides
+              </button>
+              <button
+                type="button"
+                role="tab"
+                aria-selected="false"
+                data-category="Drinks"
+                class="filter-tab px-4 py-2 rounded-md text-sm font-semibold whitespace-nowrap shrink-0 cursor-pointer"
+              >
+                Drinks
+              </button>
+              <button
+                type="button"
+                role="tab"
+                aria-selected="false"
+                data-category="Desserts"
+                class="filter-tab px-4 py-2 rounded-md text-sm font-semibold whitespace-nowrap shrink-0 cursor-pointer"
+              >
+                Desserts
+              </button>
+            </div>
+
+            <p class="hidden xl:block text-xs text-[#636863] whitespace-nowrap shrink-0">
+              Portfolio Demo: Add items to test the interactive order drawer
+            </p>
+          </div>
+
+          <!-- Dynamic Menu Grid Populated via Vanilla JS -->
+          <div
+            id="menu-items-grid"
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7"
+            aria-live="polite"
+          ></div>
+        </div>
+      </section>
+
+      <!-- 5. Promotional Hero Banner -->
+      <section
+        id="promo"
+        aria-labelledby="promo-heading"
+        class="relative py-24 md:py-32 overflow-hidden bg-[#0C2418]"
+      >
+        <img
+          src="/src/assets/images/promo_table_spread_1793352940522.jpg"
+          alt="Abundant casual dining spread of grilled steak sandwiches, crispy wings, loaded fries, dipping sauces, and iced sodas"
+          referrerpolicy="no-referrer"
+          loading="lazy"
+          data-fallback-label="Freshly Prepared Table Spread"
+          class="absolute inset-0 w-full h-full object-cover object-center"
+        />
+        <div class="promo-scrim absolute inset-0" aria-hidden="true"></div>
+
+        <div class="relative z-10 max-w-[1200px] mx-auto px-5 sm:px-8">
+          <div class="max-w-xl">
+            <p class="text-sm font-medium text-[#FAF7F2]/80 mb-3">
+              Dine In <span aria-hidden="true" class="mx-1.5 text-[#F25C05]">·</span> Takeaway Pickup <span aria-hidden="true" class="mx-1.5 text-[#F25C05]">·</span> Late Weekend Grill
+            </p>
+            <h2
+              id="promo-heading"
+              class="font-display text-3xl sm:text-5xl font-extrabold text-[#FAF7F2] leading-[1.08] headline-balance mb-5"
+            >
+              Your Next Favourite Starts Here.
+            </h2>
+            <p class="text-lg text-[#FAF7F2]/90 leading-relaxed mb-8">
+              Made fresh, packed with flavour, and ready when you are.
+            </p>
+            <a
+              href="#menu"
+              class="btn-primary px-6 py-3.5 rounded-md text-base font-semibold whitespace-nowrap shrink-0 inline-flex items-center justify-center"
+            >
+              Discover Our Menu
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 6. Our Story: Contrasting Deep Forest Green Split Section -->
+      <section id="story" aria-labelledby="story-heading" class="py-20 md:py-28 bg-[#123524] text-[#FAF7F2]">
+        <div class="max-w-[1200px] mx-auto px-5 sm:px-8">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-stretch">
+            <div class="lg:col-span-6 relative rounded-lg overflow-hidden min-h-[340px] bg-[#0C2418]">
+              <img
+                src="/src/assets/images/kitchen_grill_sizzle_1793352942530.jpg"
+                alt="STACK &amp; SIZZLE chef pressing fresh beef smash burgers onto a hot steel flat-top grill with rising steam"
+                referrerpolicy="no-referrer"
+                loading="lazy"
+                data-fallback-label="STACK & SIZZLE Open Kitchen"
+                class="w-full h-full object-cover"
+              />
+            </div>
+
+            <div class="lg:col-span-6 flex flex-col justify-center">
+              <p class="text-sm font-semibold text-[#F25C05] mb-3">
+                Our Story <span aria-hidden="true" class="mx-1.5 text-[#FAF7F2]/50">·</span> Born in Brisbane
+              </p>
+              <h2
+                id="story-heading"
+                class="font-display text-3xl sm:text-4xl lg:text-[2.75rem] font-extrabold text-[#FAF7F2] leading-[1.1] headline-balance mb-6"
+              >
+                Good Food. Great Company.
+              </h2>
+              <div class="space-y-4 text-base text-[#FAF7F2]/85 leading-relaxed mb-9">
+                <p>
+                  STACK &amp; SIZZLE started with one stubborn rule: casual food shouldn't taste like an afterthought. We fired up our first flat-top grill in Brisbane to bring proper kitchen craft—seared crusts, real cheddar melt, and scratch-made sauces—to an easygoing neighbourhood table.
+                </p>
+                <p>
+                  Every burger begins with freshly ground Queensland pasture-raised beef pressed hard onto seasoned steel the moment your ticket prints. Our potato brioche buns arrive warm from a local bakery each morning, and our pickles, smoky sizzle sauce, and hickory glazes are prepped in-house before the doors swing open.
+                </p>
+                <p>
+                  Whether you're dropping in after a walk along the river, splitting truffle fries with mates on a Friday night, or grabbing a thickshake for the trip home, you'll always find loud flavour and a warm welcome.
+                </p>
+              </div>
+
+              <div class="border-t border-white/15 divide-y divide-white/15">
+                <div class="py-4 flex flex-col sm:flex-row sm:items-baseline justify-between gap-2">
+                  <h3 class="font-display text-base font-bold text-[#FAF7F2]">01. Pressed Fresh to Order</h3>
+                  <p class="text-sm text-[#FAF7F2]/75">Never held in warming trays—every patty hits hot steel when you order.</p>
+                </div>
+                <div class="py-4 flex flex-col sm:flex-row sm:items-baseline justify-between gap-2">
+                  <h3 class="font-display text-base font-bold text-[#FAF7F2]">02. Local Queensland Produce</h3>
+                  <p class="text-sm text-[#FAF7F2]/75">Scenic Rim greens, Maleny dairy shakes, and locally baked potato buns.</p>
+                </div>
+                <div class="py-4 flex flex-col sm:flex-row sm:items-baseline justify-between gap-2">
+                  <h3 class="font-display text-base font-bold text-[#FAF7F2]">03. Scratch-Whipped Sauces</h3>
+                  <p class="text-sm text-[#FAF7F2]/75">Seven signature dips and glazes blended daily in our South Bank kitchen.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 7. Food Photography Gallery with Working Lightbox -->
+      <section id="gallery" aria-labelledby="gallery-heading" class="py-20 md:py-28 bg-[#FAF7F2]">
+        <div class="max-w-[1200px] mx-auto px-5 sm:px-8">
+          <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+            <div>
+              <p class="text-sm font-semibold text-[#123524] mb-2">
+                Inside STACK &amp; SIZZLE <span aria-hidden="true" class="mx-1.5">·</span> Click Any Frame to Enlarge
+              </p>
+              <h2
+                id="gallery-heading"
+                class="font-display text-3xl sm:text-4xl font-extrabold text-[#1C1E1C] headline-balance"
+              >
+                From Hot Steel to Full Booths
+              </h2>
+            </div>
+            <p class="text-sm text-[#3D413D] max-w-md">
+              Close-up grill craft, crisp sides, fresh morning prep, and evenings shared around the table.
+            </p>
+          </div>
+
+          <div id="gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-5"></div>
+        </div>
+      </section>
+
+      <!-- 8. Customer Reviews -->
+      <section id="reviews" aria-labelledby="reviews-heading" class="py-20 md:py-24 bg-[#F1ECE3] border-y border-[#1C1E1C]/10">
+        <div class="max-w-[1200px] mx-auto px-5 sm:px-8">
+          <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 pb-6 border-b border-[#1C1E1C]/10">
+            <div>
+              <p class="text-sm font-semibold text-[#123524] mb-2">
+                Guest Impressions <span aria-hidden="true" class="mx-1.5">·</span> Sample Portfolio Testimonials
+              </p>
+              <h2
+                id="reviews-heading"
+                class="font-display text-3xl sm:text-4xl font-extrabold text-[#1C1E1C] headline-balance"
+              >
+                What Regulars Say Around the Table
+              </h2>
+            </div>
+            <p class="text-xs text-[#636863] max-w-sm">
+              Note: Sample customer quotes created for this fictional brand concept demonstration.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <blockquote class="bg-[#FAF7F2] border border-[#1C1E1C]/10 rounded-lg p-7 flex flex-col justify-between gap-6">
+              <p class="text-[15px] text-[#1C1E1C] leading-relaxed">
+                "We ducked in after an afternoon walk through South Bank expecting a quick bite and ended up staying an hour. The lacy sear on The Double Stack Burger and those truffle parmesan fries are genuinely addictive."
+              </p>
+              <footer class="pt-4 border-t border-[#1C1E1C]/10">
+                <div class="font-display text-base font-bold text-[#1C1E1C]">Liam Callaghan</div>
+                <div class="text-xs text-[#636863]">West End Local <span aria-hidden="true">·</span> Ordered Double Stack &amp; Truffle Fries</div>
+              </footer>
+            </blockquote>
+
+            <blockquote class="bg-[#FAF7F2] border border-[#1C1E1C]/10 rounded-lg p-7 flex flex-col justify-between gap-6">
+              <p class="text-[15px] text-[#1C1E1C] leading-relaxed">
+                "Finding somewhere casual that nails crispy fried chicken without feeling like a fast-food chain is rare. The Spicy Crunch Burger brings proper heat, and the booths are comfortable for a Friday catch-up."
+              </p>
+              <footer class="pt-4 border-t border-[#1C1E1C]/10">
+                <div class="font-display text-base font-bold text-[#1C1E1C]">Priya Nair</div>
+                <div class="text-xs text-[#636863]">New Farm <span aria-hidden="true">·</span> Friday Group Dinner Sample</div>
+              </footer>
+            </blockquote>
+
+            <blockquote class="bg-[#FAF7F2] border border-[#1C1E1C]/10 rounded-lg p-7 flex flex-col justify-between gap-6">
+              <p class="text-[15px] text-[#1C1E1C] leading-relaxed">
+                "Swung past on my lunch break for the Smoky BBQ Chicken Burger and a Classic Chocolate Shake. Came out piping hot in under ten minutes, generous portions, and friendly crew behind the pass."
+              </p>
+              <footer class="pt-4 border-t border-[#1C1E1C]/10">
+                <div class="font-display text-base font-bold text-[#1C1E1C]">Marcus Vance</div>
+                <div class="text-xs text-[#636863]">Brisbane CBD <span aria-hidden="true">·</span> Midweek Takeaway Sample</div>
+              </footer>
+            </blockquote>
+          </div>
+        </div>
+      </section>
+
+      <!-- 9. Location, Opening Hours & Contact Form -->
+      <section id="locations" aria-labelledby="locations-heading" class="py-20 md:py-28 bg-[#FAF7F2]">
+        <div class="max-w-[1200px] mx-auto px-5 sm:px-8">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+            <div class="lg:col-span-6 space-y-8">
+              <div>
+                <p class="text-sm font-semibold text-[#123524] mb-2">
+                  Find Our Kitchen <span aria-hidden="true" class="mx-1.5">·</span> Fictional Demonstration Venue
+                </p>
+                <h2
+                  id="locations-heading"
+                  class="font-display text-3xl sm:text-4xl font-extrabold text-[#1C1E1C] headline-balance mb-3"
+                >
+                  Visit Us in South Bank, Brisbane
+                </h2>
+                <p class="text-base text-[#3D413D] leading-relaxed">
+                  Drop in for open-air patio dining, grab a booth with friends, or pick up freshly packed takeaway minutes from the riverfront.
+                </p>
+              </div>
+
+              <div class="rounded-lg overflow-hidden border border-[#1C1E1C]/10 aspect-[4/3] bg-[#141514]">
+                <img
+                  src="/src/assets/images/brisbane_restaurant_patio_1793352946816.jpg"
+                  alt="Twilight view of STACK &amp; SIZZLE outdoor dining terrace in Brisbane with warm glowing lights and lush greenery"
+                  referrerpolicy="no-referrer"
+                  loading="lazy"
+                  data-fallback-label="South Bank Dining Terrace, Brisbane"
+                  class="w-full h-full object-cover object-left"
+                />
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 pt-2">
+                <div>
+                  <h3 class="font-display text-lg font-bold text-[#1C1E1C] mb-3">Location &amp; Contact</h3>
+                  <address class="not-italic text-sm text-[#3D413D] space-y-2 leading-relaxed">
+                    <p class="font-semibold text-[#1C1E1C]">148 Grey Street, South Bank</p>
+                    <p>Brisbane QLD 4101, Australia</p>
+                    <p class="pt-1">
+                      Phone:
+                      <a href="#contact" class="font-price text-[#123524] hover:text-[#D9480F] underline underline-offset-2">(07) 3010 5582</a>
+                    </p>
+                    <p>
+                      Email:
+                      <a href="#contact" class="text-[#123524] hover:text-[#D9480F] underline underline-offset-2">hello@stackandsizzle.example</a>
+                    </p>
+                  </address>
+                </div>
+
+                <div>
+                  <h3 class="font-display text-lg font-bold text-[#1C1E1C] mb-3">Opening Hours</h3>
+                  <dl class="text-sm text-[#3D413D] space-y-2">
+                    <div class="flex items-baseline justify-between gap-4">
+                      <dt>Mon – Wed</dt>
+                      <dd class="font-price text-[#1C1E1C]">11:30 am – 9:00 pm</dd>
+                    </div>
+                    <div class="flex items-baseline justify-between gap-4">
+                      <dt>Thursday</dt>
+                      <dd class="font-price text-[#1C1E1C]">11:30 am – 9:30 pm</dd>
+                    </div>
+                    <div class="flex items-baseline justify-between gap-4">
+                      <dt class="font-semibold text-[#1C1E1C]">Fri – Sat</dt>
+                      <dd class="font-price font-semibold text-[#123524]">11:30 am – 11:00 pm</dd>
+                    </div>
+                    <div class="flex items-baseline justify-between gap-4">
+                      <dt>Sunday</dt>
+                      <dd class="font-price text-[#1C1E1C]">11:30 am – 9:00 pm</dd>
+                    </div>
+                  </dl>
+                </div>
+              </div>
+
+              <div class="flex flex-wrap items-center gap-3 pt-1">
+                <button
+                  type="button"
+                  id="open-directions-btn"
+                  class="btn-forest px-5 py-3 rounded-md text-sm font-semibold whitespace-nowrap shrink-0 cursor-pointer"
+                >
+                  Directions &amp; Parking
+                </button>
+                <button
+                  type="button"
+                  data-open-cart
+                  class="btn-outline-dark px-5 py-3 rounded-md text-sm font-semibold whitespace-nowrap shrink-0 cursor-pointer"
+                >
+                  Start Demo Pickup Order
+                </button>
+              </div>
+
+              <p class="text-xs text-[#636863] leading-relaxed">
+                Demonstration Notice: STACK &amp; SIZZLE, its Brisbane street address, phone number, and email address are fictional details created for a web design agency portfolio showcase.
+              </p>
+            </div>
+
+            <!-- Right Column: Contact Form -->
+            <div id="contact" class="lg:col-span-6 bg-white border border-[#1C1E1C]/10 rounded-lg p-7 sm:p-9 scroll-mt-24">
+              <p class="text-sm font-semibold text-[#D9480F] mb-2">
+                Contact Us <span aria-hidden="true" class="mx-1.5 text-[#636863]">·</span> Demo Enquiry Form
+              </p>
+              <h3 class="font-display text-2xl sm:text-3xl font-extrabold text-[#1C1E1C] mb-2">
+                Planning a Group Table or Have a Question?
+              </h3>
+              <p class="text-sm text-[#3D413D] leading-relaxed mb-7">
+                Send a sample enquiry below to preview our interactive confirmation state. No data leaves your browser.
+              </p>
+
+              <form id="contact-form" novalidate class="space-y-5">
+                <div>
+                  <label for="contact-name" class="block text-sm font-semibold text-[#1C1E1C] mb-1.5">
+                    Your Name
+                  </label>
+                  <input
+                    type="text"
+                    id="contact-name"
+                    name="name"
+                    required
+                    autocomplete="name"
+                    placeholder="e.g. Jordan Taylor"
+                    class="w-full px-4 py-2.5 rounded-md border border-[#1C1E1C]/20 bg-[#FAF7F2] text-sm text-[#1C1E1C] placeholder:text-[#636863]/70"
+                  />
+                  <p id="error-contact-name" hidden class="mt-1.5 text-xs font-medium text-[#BF3D0A]">
+                    Please enter your name so we can personalise the demo response.
+                  </p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                  <div>
+                    <label for="contact-email" class="block text-sm font-semibold text-[#1C1E1C] mb-1.5">
+                      Email Address
+                    </label>
+                    <input
+                      type="email"
+                      id="contact-email"
+                      name="email"
+                      required
+                      autocomplete="email"
+                      placeholder="jordan@example.com"
+                      class="w-full px-4 py-2.5 rounded-md border border-[#1C1E1C]/20 bg-[#FAF7F2] text-sm text-[#1C1E1C] placeholder:text-[#636863]/70"
+                    />
+                    <p id="error-contact-email" hidden class="mt-1.5 text-xs font-medium text-[#BF3D0A]">
+                      Please enter a valid email address.
+                    </p>
+                  </div>
+
+                  <div>
+                    <label for="contact-topic" class="block text-sm font-semibold text-[#1C1E1C] mb-1.5">
+                      Enquiry Topic
+                    </label>
+                    <select
+                      id="contact-topic"
+                      name="topic"
+                      class="w-full px-4 py-2.5 rounded-md border border-[#1C1E1C]/20 bg-[#FAF7F2] text-sm text-[#1C1E1C]"
+                    >
+                      <option value="Group Table (8+ Guests)">Group Table (8+ Guests)</option>
+                      <option value="Dietary & Allergen Question">Dietary &amp; Allergen Question</option>
+                      <option value="Event Platter & Catering">Event Platter &amp; Catering</option>
+                      <option value="General Feedback">General Feedback</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div>
+                  <label for="contact-message" class="block text-sm font-semibold text-[#1C1E1C] mb-1.5">
+                    Message
+                  </label>
+                  <textarea
+                    id="contact-message"
+                    name="message"
+                    rows="4"
+                    required
+                    placeholder="Tell us about your visit, preferred time, or dietary questions..."
+                    class="w-full px-4 py-2.5 rounded-md border border-[#1C1E1C]/20 bg-[#FAF7F2] text-sm text-[#1C1E1C] placeholder:text-[#636863]/70"
+                  ></textarea>
+                  <p id="error-contact-message" hidden class="mt-1.5 text-xs font-medium text-[#BF3D0A]">
+                    Please add a short message before submitting.
+                  </p>
+                </div>
+
+                <button
+                  type="submit"
+                  class="btn-primary w-full sm:w-auto px-6 py-3 rounded-md text-sm font-semibold whitespace-nowrap shrink-0 cursor-pointer"
+                >
+                  Send Demo Enquiry
+                </button>
+              </form>
+
+              <div
+                id="contact-demo-feedback"
+                hidden
+                role="status"
+                aria-live="polite"
+                class="mt-6 p-5 rounded-md bg-[#123524] text-[#FAF7F2]"
+              >
+                <div class="font-display text-lg font-bold mb-1" id="contact-feedback-title">
+                  Demo Enquiry Preview Complete
+                </div>
+                <p class="text-sm text-[#FAF7F2]/85 leading-relaxed mb-3" id="contact-feedback-body"></p>
+                <p class="text-xs text-[#FAF7F2]/70">
+                  Portfolio Demonstration Only: No message has been sent to a real restaurant or inbox.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- 11. Bold, Well-Organized Footer -->
+    <footer class="bg-[#141514] text-[#FAF7F2] border-t border-white/10">
+      <div class="max-w-[1200px] mx-auto px-5 sm:px-8 py-16">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-white/10">
+          <div class="lg:col-span-4 space-y-4">
+            <a href="#home" class="font-display text-2xl font-extrabold tracking-tight text-[#FAF7F2] inline-block">
+              STACK &amp; SIZZLE
+            </a>
+            <p class="text-sm text-[#FAF7F2]/75 leading-relaxed max-w-sm">
+              Gourmet smash burgers, loaded truffle fries, buttermilk Southern chicken, and hand-spun thickshakes crafted for lively casual dining in Brisbane.
+            </p>
+            <div class="flex items-center gap-4 pt-1">
+              <button
+                type="button"
+                data-demo-social="Instagram"
+                class="text-xs font-semibold text-[#FAF7F2]/75 hover:text-[#F25C05] underline underline-offset-4 transition-colors cursor-pointer whitespace-nowrap shrink-0"
+              >
+                Instagram (Demo)
+              </button>
+              <button
+                type="button"
+                data-demo-social="TikTok"
+                class="text-xs font-semibold text-[#FAF7F2]/75 hover:text-[#F25C05] underline underline-offset-4 transition-colors cursor-pointer whitespace-nowrap shrink-0"
+              >
+                TikTok (Demo)
+              </button>
+              <button
+                type="button"
+                data-demo-social="Facebook"
+                class="text-xs font-semibold text-[#FAF7F2]/75 hover:text-[#F25C05] underline underline-offset-4 transition-colors cursor-pointer whitespace-nowrap shrink-0"
+              >
+                Facebook (Demo)
+              </button>
+            </div>
+          </div>
+
+          <div class="lg:col-span-2 space-y-3">
+            <h2 class="font-display text-base font-bold text-[#FAF7F2]">Explore</h2>
+            <ul class="space-y-2 text-sm text-[#FAF7F2]/75">
+              <li><a href="#home" class="hover:text-[#FAF7F2] transition-colors">Home</a></li>
+              <li><a href="#featured" class="hover:text-[#FAF7F2] transition-colors">Featured Food</a></li>
+              <li><a href="#menu" class="hover:text-[#FAF7F2] transition-colors">Interactive Menu</a></li>
+              <li><a href="#story" class="hover:text-[#FAF7F2] transition-colors">Our Story</a></li>
+              <li><a href="#gallery" class="hover:text-[#FAF7F2] transition-colors">Photo Gallery</a></li>
+              <li><a href="#locations" class="hover:text-[#FAF7F2] transition-colors">Location &amp; Hours</a></li>
+              <li><a href="#contact" class="hover:text-[#FAF7F2] transition-colors">Contact Us</a></li>
+            </ul>
+          </div>
+
+          <div class="lg:col-span-3 space-y-3">
+            <h2 class="font-display text-base font-bold text-[#FAF7F2]">Menu Categories</h2>
+            <ul class="space-y-2 text-sm text-[#FAF7F2]/75">
+              <li>
+                <a href="#menu" data-footer-category="Burgers" class="hover:text-[#F25C05] transition-colors">
+                  Gourmet Burgers &amp; Melts
+                </a>
+              </li>
+              <li>
+                <a href="#menu" data-footer-category="Chicken" class="hover:text-[#F25C05] transition-colors">
+                  Crispy &amp; Grilled Chicken
+                </a>
+              </li>
+              <li>
+                <a href="#menu" data-footer-category="Sides" class="hover:text-[#F25C05] transition-colors">
+                  Loaded Fries &amp; Sides
+                </a>
+              </li>
+              <li>
+                <a href="#menu" data-footer-category="Drinks" class="hover:text-[#F25C05] transition-colors">
+                  Thickshakes &amp; Craft Sodas
+                </a>
+              </li>
+              <li>
+                <a href="#menu" data-footer-category="Desserts" class="hover:text-[#F25C05] transition-colors">
+                  Warm Waffles &amp; Desserts
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="lg:col-span-3 space-y-3">
+            <h2 class="font-display text-base font-bold text-[#FAF7F2]">Brisbane Kitchen (Demo)</h2>
+            <div class="text-sm text-[#FAF7F2]/75 space-y-1.5">
+              <p>148 Grey Street, South Bank</p>
+              <p>Brisbane QLD 4101</p>
+              <p class="font-price text-[#FAF7F2]">(07) 3010 5582</p>
+              <p>hello@stackandsizzle.example</p>
+              <p class="pt-2 text-xs text-[#FAF7F2]/65">
+                Open Daily from 11:30 am · Late Grill Fri &amp; Sat till 11:00 pm
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="pt-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs text-[#FAF7F2]/60">
+          <p>&copy; 2026 STACK &amp; SIZZLE. Fictional restaurant website concept created for agency portfolio demonstration.</p>
+          <p>Prices shown in AUD for interactive frontend demonstration only.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Interactive Slide-Over Order Cart Drawer (Portfolio Demonstration) -->
+    <div
+      id="cart-backdrop"
+      class="drawer-backdrop fixed inset-0 z-50"
+      aria-hidden="true"
+    >
+      <aside
+        id="cart-drawer"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="cart-drawer-title"
+        class="cart-drawer fixed top-0 right-0 bottom-0 w-full max-w-md bg-[#FAF7F2] text-[#1C1E1C] shadow-2xl flex flex-col border-l border-[#1C1E1C]/15"
+      >
+        <div class="px-6 py-5 bg-[#123524] text-[#FAF7F2] flex items-center justify-between gap-4">
+          <div>
+            <h2 id="cart-drawer-title" class="font-display text-xl font-extrabold">
+              Your Demo Order
+            </h2>
+            <p class="text-xs text-[#FAF7F2]/80">
+              Portfolio Demonstration <span aria-hidden="true">·</span> No Real Payment or Kitchen Ticket
+            </p>
+          </div>
+          <button
+            type="button"
+            id="close-cart-btn"
+            aria-label="Close order drawer"
+            class="w-9 h-9 inline-flex items-center justify-center rounded-md border border-white/25 text-[#FAF7F2] hover:bg-white/10 transition-colors cursor-pointer"
+          >
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+
+        <div id="cart-items-container" class="flex-1 overflow-y-auto p-6 space-y-4"></div>
+
+        <div class="p-6 bg-white border-t border-[#1C1E1C]/10 space-y-4">
+          <div class="space-y-1.5">
+            <div class="flex items-baseline justify-between text-sm text-[#3D413D]">
+              <span>Pickup Location (Demo)</span>
+              <span class="font-medium text-[#1C1E1C]">South Bank, Brisbane</span>
+            </div>
+            <div class="flex items-baseline justify-between pt-2 border-t border-[#1C1E1C]/10">
+              <span class="font-display text-lg font-bold text-[#1C1E1C]">Subtotal (AUD)</span>
+              <span id="cart-subtotal" class="font-price text-xl font-bold text-[#123524]">$0.00</span>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-2 gap-3">
+            <button
+              type="button"
+              id="clear-cart-btn"
+              class="btn-outline-dark px-4 py-2.5 rounded-md text-sm font-semibold whitespace-nowrap shrink-0 cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed"
+            >
+              Clear Cart
+            </button>
+            <button
+              type="button"
+              id="place-demo-order-btn"
+              class="btn-primary px-4 py-2.5 rounded-md text-sm font-semibold whitespace-nowrap shrink-0 cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed"
+            >
+              Preview Checkout
+            </button>
+          </div>
+
+          <p class="text-[11px] text-[#636863] leading-snug text-center">
+            Interactive portfolio prototype — orders are simulated locally in your browser.
+          </p>
+        </div>
+      </aside>
+    </div>
+
+    <!-- Menu Item Detail Modal -->
+    <div
+      id="item-modal-backdrop"
+      class="modal-backdrop fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6"
+      aria-hidden="true"
+    >
+      <div
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="item-modal-title"
+        class="dialog-panel w-full max-w-xl bg-[#FAF7F2] rounded-lg overflow-hidden shadow-2xl border border-[#1C1E1C]/15"
+      >
+        <div class="relative aspect-[16/10] bg-[#141514]">
+          <img
+            id="item-modal-image"
+            src="/src/assets/images/double_stack_burger_1793352931979.jpg"
+            alt=""
+            referrerpolicy="no-referrer"
+            class="w-full h-full object-cover"
+          />
+          <button
+            type="button"
+            id="close-item-modal-btn"
+            aria-label="Close item details"
+            class="absolute top-3 right-3 w-10 h-10 inline-flex items-center justify-center rounded-md bg-[#141514]/80 text-[#FAF7F2] hover:bg-[#141514] transition-colors cursor-pointer"
+          >
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+        <div class="p-6 sm:p-7 space-y-4">
+          <div class="flex items-baseline justify-between gap-4">
+            <p id="item-modal-meta" class="text-xs font-medium text-[#636863]"></p>
+            <span id="item-modal-price" class="font-price text-xl font-bold text-[#123524]"></span>
+          </div>
+          <h3 id="item-modal-title" class="font-display text-2xl font-extrabold text-[#1C1E1C]"></h3>
+          <p id="item-modal-desc" class="text-sm sm:text-base text-[#3D413D] leading-relaxed"></p>
+          <p id="item-modal-prep" class="text-xs text-[#636863] pt-2 border-t border-[#1C1E1C]/10"></p>
+          <div class="pt-2 flex flex-wrap items-center justify-end gap-3">
+            <button
+              type="button"
+              id="item-modal-cancel-btn"
+              class="btn-outline-dark px-4 py-2.5 rounded-md text-sm font-semibold whitespace-nowrap shrink-0 cursor-pointer"
+            >
+              Keep Browsing
+            </button>
+            <button
+              type="button"
+              id="item-modal-add-btn"
+              class="btn-primary px-6 py-2.5 rounded-md text-sm font-semibold whitespace-nowrap shrink-0 cursor-pointer"
+            >
+              Add to Demo Order
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Gallery Lightbox Modal -->
+    <div
+      id="lightbox-backdrop"
+      class="modal-backdrop fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-8"
+      aria-hidden="true"
+    >
+      <div
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="lightbox-caption"
+        class="dialog-panel w-full max-w-4xl bg-[#141514] text-[#FAF7F2] rounded-lg overflow-hidden border border-white/15 shadow-2xl"
+      >
+        <div class="px-5 py-3.5 flex items-center justify-between border-b border-white/10">
+          <span id="lightbox-counter" class="font-price text-xs text-[#FAF7F2]/75">1 / 6</span>
+          <button
+            type="button"
+            id="close-lightbox-btn"
+            aria-label="Close gallery lightbox"
+            class="w-9 h-9 inline-flex items-center justify-center rounded-md border border-white/20 text-[#FAF7F2] hover:bg-white/10 transition-colors cursor-pointer"
+          >
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+
+        <div class="relative aspect-[16/10] bg-black flex items-center justify-center">
+          <img
+            id="lightbox-image"
+            src="/src/assets/images/double_stack_burger_1793352931979.jpg"
+            alt=""
+            referrerpolicy="no-referrer"
+            class="w-full h-full object-contain"
+          />
+
+          <button
+            type="button"
+            id="lightbox-prev-btn"
+            aria-label="Previous photograph"
+            class="absolute left-3 top-1/2 -translate-y-1/2 w-11 h-11 inline-flex items-center justify-center rounded-md bg-[#141514]/85 border border-white/20 text-[#FAF7F2] hover:bg-[#D9480F] transition-colors cursor-pointer"
+          >
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+
+          <button
+            type="button"
+            id="lightbox-next-btn"
+            aria-label="Next photograph"
+            class="absolute right-3 top-1/2 -translate-y-1/2 w-11 h-11 inline-flex items-center justify-center rounded-md bg-[#141514]/85 border border-white/20 text-[#FAF7F2] hover:bg-[#D9480F] transition-colors cursor-pointer"
+          >
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+        </div>
+
+        <div class="px-6 py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+          <div>
+            <h3 id="lightbox-caption" class="font-display text-lg font-bold text-[#FAF7F2]"></h3>
+            <p id="lightbox-subcaption" class="text-xs text-[#FAF7F2]/75"></p>
+          </div>
+          <p class="text-xs text-[#FAF7F2]/55 whitespace-nowrap shrink-0">Use Left / Right Arrow keys to browse</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Directions & Getting Here Modal -->
+    <div
+      id="directions-modal-backdrop"
+      class="modal-backdrop fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6"
+      aria-hidden="true"
+    >
+      <div
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="directions-modal-title"
+        class="dialog-panel w-full max-w-lg bg-[#FAF7F2] text-[#1C1E1C] rounded-lg p-6 sm:p-8 shadow-2xl border border-[#1C1E1C]/15 space-y-5"
+      >
+        <div class="flex items-start justify-between gap-4">
+          <div>
+            <p class="text-xs font-semibold text-[#123524] mb-1">South Bank Precinct · Demonstration Guide</p>
+            <h3 id="directions-modal-title" class="font-display text-2xl font-extrabold text-[#1C1E1C]">
+              Getting to STACK &amp; SIZZLE
+            </h3>
+          </div>
+          <button
+            type="button"
+            id="close-directions-btn"
+            aria-label="Close directions guide"
+            class="w-9 h-9 inline-flex items-center justify-center rounded-md border border-[#1C1E1C]/20 text-[#1C1E1C] hover:bg-[#1C1E1C]/5 cursor-pointer"
+          >
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+
+        <div class="space-y-3 text-sm text-[#3D413D] leading-relaxed border-y border-[#1C1E1C]/10 py-4">
+          <p><strong class="text-[#1C1E1C]">Fictional Street Address:</strong> 148 Grey Street, South Bank, Brisbane QLD 4101</p>
+          <p><strong class="text-[#1C1E1C]">By Train &amp; Busway:</strong> 3-minute walk from South Bank or South Brisbane stations along Grey Street.</p>
+          <p><strong class="text-[#1C1E1C]">By River CityCat:</strong> Alight at South Bank Terminal 1 and stroll two blocks west past the arbour.</p>
+          <p><strong class="text-[#1C1E1C]">Parking:</strong> Underground precinct parking accessible via Tribune Street and Little Stanley Street.</p>
+        </div>
+
+        <p class="text-xs text-[#636863]">
+          Portfolio Notice: Because STACK &amp; SIZZLE is a fictional restaurant created for this web design showcase, external map navigation is disabled so visitors aren't routed to an unrelated address.
+        </p>
+
+        <div class="flex justify-end">
+          <button
+            type="button"
+            id="done-directions-btn"
+            class="btn-forest px-5 py-2.5 rounded-md text-sm font-semibold whitespace-nowrap shrink-0 cursor-pointer"
+          >
+            Got It
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Non-Blocking Feedback Toast -->
+    <div
+      id="toast-notification"
+      role="status"
+      aria-live="polite"
+      class="toast-banner fixed bottom-5 right-5 z-50 max-w-sm bg-[#141514] text-[#FAF7F2] px-4 py-3 rounded-md shadow-xl border border-white/15 flex items-center gap-3 text-sm"
+    >
+      <span id="toast-message" class="font-medium"></span>
+      <button
+        type="button"
+        data-open-cart
+        id="toast-cart-action"
+        class="text-xs font-semibold text-[#F25C05] hover:underline whitespace-nowrap shrink-0 cursor-pointer"
+      >
+        View Cart
+      </button>
+    </div>
+
+    <script type="module" src="/src/app.js"></script>
+  </body>
+</html>

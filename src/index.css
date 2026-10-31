@@ -1,0 +1,319 @@
+@import "tailwindcss";
+
+:root {
+  --bg-warm-white: #FAF7F2;
+  --bg-warm-stone: #F1ECE3;
+  --bg-card-white: #FFFFFF;
+  --forest-950: #0C2418;
+  --forest-900: #123524;
+  --forest-800: #1B4B34;
+  --charcoal-950: #141514;
+  --charcoal-900: #1C1E1C;
+  --charcoal-700: #3D413D;
+  --charcoal-500: #636863;
+  --sizzle-orange: #D9480F;
+  --sizzle-orange-bright: #F25C05;
+  --sizzle-orange-hover: #BF3D0A;
+  --hairline-light: rgba(24, 25, 24, 0.1);
+  --hairline-dark: rgba(250, 247, 242, 0.14);
+  --ease-out-snappy: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--bg-warm-white);
+  color: var(--charcoal-900);
+  font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+  background-color: var(--bg-warm-white);
+  color: var(--charcoal-900);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+.font-display {
+  font-family: "Bricolage Grotesque", sans-serif;
+  letter-spacing: -0.025em;
+}
+
+.font-price {
+  font-family: "JetBrains Mono", monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+.headline-balance {
+  text-wrap: balance;
+}
+
+/* Accessible Focus Rings */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--sizzle-orange-bright);
+  outline-offset: 3px;
+}
+
+/* Sticky Header Governance */
+.site-header {
+  background-color: rgba(20, 21, 20, 0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(250, 247, 242, 0.1);
+  transition: background-color 180ms var(--ease-out-snappy);
+}
+
+.nav-link {
+  position: relative;
+  color: rgba(250, 247, 242, 0.86);
+  transition: color 160ms var(--ease-out-snappy);
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -4px;
+  height: 2px;
+  background-color: var(--sizzle-orange-bright);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 180ms var(--ease-out-snappy);
+}
+
+.nav-link:hover,
+.nav-link.is-active {
+  color: #FAF7F2;
+}
+
+.nav-link:hover::after,
+.nav-link.is-active::after {
+  transform: scaleX(1);
+}
+
+/* Measured Contrast Scrims for Photographic Overlays */
+.hero-scrim {
+  background: linear-gradient(
+    102deg,
+    rgba(16, 18, 16, 0.90) 0%,
+    rgba(16, 18, 16, 0.72) 46%,
+    rgba(16, 18, 16, 0.34) 100%
+  );
+}
+
+.hero-bottom-scrim {
+  background: linear-gradient(
+    to top,
+    rgba(16, 18, 16, 0.85) 0%,
+    rgba(16, 18, 16, 0) 35%
+  );
+}
+
+.promo-scrim {
+  background: linear-gradient(
+    95deg,
+    rgba(12, 36, 24, 0.93) 0%,
+    rgba(18, 53, 36, 0.80) 52%,
+    rgba(20, 21, 20, 0.42) 100%
+  );
+}
+
+/* Subtle Hero Entrance Animation */
+@keyframes heroFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-hero-1 {
+  animation: heroFadeUp 480ms var(--ease-out-snappy) both;
+}
+
+.animate-hero-2 {
+  animation: heroFadeUp 560ms var(--ease-out-snappy) 70ms both;
+}
+
+.animate-hero-3 {
+  animation: heroFadeUp 620ms var(--ease-out-snappy) 140ms both;
+}
+
+/* Tactile Buttons & Card Micro-Interactions */
+.btn-primary {
+  background-color: var(--sizzle-orange);
+  color: #FFFFFF;
+  transition: background-color 160ms var(--ease-out-snappy), transform 160ms var(--ease-out-snappy);
+}
+
+.btn-primary:hover {
+  background-color: var(--sizzle-orange-hover);
+  transform: translateY(-1px);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-forest {
+  background-color: var(--forest-900);
+  color: #FAF7F2;
+  transition: background-color 160ms var(--ease-out-snappy), transform 160ms var(--ease-out-snappy);
+}
+
+.btn-forest:hover {
+  background-color: var(--forest-800);
+  transform: translateY(-1px);
+}
+
+.btn-outline-light {
+  border: 1px solid rgba(250, 247, 242, 0.45);
+  background-color: rgba(20, 21, 20, 0.35);
+  color: #FAF7F2;
+  transition: background-color 160ms var(--ease-out-snappy), border-color 160ms var(--ease-out-snappy), transform 160ms var(--ease-out-snappy);
+}
+
+.btn-outline-light:hover {
+  background-color: rgba(250, 247, 242, 0.14);
+  border-color: #FAF7F2;
+  transform: translateY(-1px);
+}
+
+.btn-outline-dark {
+  border: 1px solid rgba(28, 30, 28, 0.22);
+  background-color: transparent;
+  color: var(--charcoal-900);
+  transition: background-color 160ms var(--ease-out-snappy), border-color 160ms var(--ease-out-snappy);
+}
+
+.btn-outline-dark:hover {
+  background-color: rgba(28, 30, 28, 0.05);
+  border-color: var(--charcoal-900);
+}
+
+/* Product & Feature Media Hover */
+.food-card {
+  transition: transform 180ms var(--ease-out-snappy), border-color 180ms var(--ease-out-snappy);
+}
+
+.food-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(28, 30, 28, 0.26);
+}
+
+.food-media img {
+  transition: transform 320ms var(--ease-out-snappy);
+}
+
+.food-card:hover .food-media img,
+.gallery-tile:hover img {
+  transform: scale(1.03);
+}
+
+/* Interactive Menu Filter Tabs */
+.filter-tab {
+  color: var(--charcoal-700);
+  background-color: transparent;
+  transition: background-color 160ms var(--ease-out-snappy), color 160ms var(--ease-out-snappy);
+}
+
+.filter-tab:hover {
+  color: var(--charcoal-900);
+  background-color: rgba(28, 30, 28, 0.05);
+}
+
+.filter-tab[aria-selected="true"] {
+  background-color: var(--forest-900);
+  color: #FAF7F2;
+}
+
+/* Slide-Over Cart Drawer & Modals */
+.drawer-backdrop,
+.modal-backdrop {
+  background-color: rgba(16, 18, 16, 0.72);
+  backdrop-filter: blur(4px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 200ms var(--ease-out-snappy);
+}
+
+.drawer-backdrop.is-open,
+.modal-backdrop.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.cart-drawer {
+  transform: translateX(100%);
+  transition: transform 220ms var(--ease-out-snappy);
+}
+
+.cart-drawer.is-open {
+  transform: translateX(0);
+}
+
+.dialog-panel {
+  transform: translateY(10px) scale(0.98);
+  opacity: 0;
+  transition: transform 200ms var(--ease-out-snappy), opacity 200ms var(--ease-out-snappy);
+}
+
+.modal-backdrop.is-open .dialog-panel {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+}
+
+/* Toast Notification */
+.toast-banner {
+  transform: translateY(16px);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 180ms var(--ease-out-snappy), opacity 180ms var(--ease-out-snappy);
+}
+
+.toast-banner.is-visible {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Resilient Image Fallback */
+.img-fallback-box {
+  background: linear-gradient(135deg, #123524 0%, #1C1E1C 100%);
+  color: #FAF7F2;
+}
+
+/* Reduced Motion Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .animate-hero-1,
+  .animate-hero-2,
+  .animate-hero-3,
+  .food-card,
+  .food-media img,
+  .gallery-tile img,
+  .cart-drawer,
+  .dialog-panel,
+  .drawer-backdrop,
+  .modal-backdrop,
+  .toast-banner,
+  .btn-primary,
+  .btn-forest,
+  .btn-outline-light {
+    animation: none !important;
+    transition: none !important;
+  }
+}
